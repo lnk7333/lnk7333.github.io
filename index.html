@@ -16,6 +16,20 @@
         <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            function validateForm() {
+                let x = document.forms["myForm"]["cari"].value;
+                if (x == "") {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "Pencarian Tidak Boleh Kosong!",
+                    });
+                    return false;
+                }
+            }
+        </script>
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -35,6 +49,14 @@
                         <li class="nav-item"><a class="nav-link me-lg-3" href="#download">Berita</a></li>
                         <li class="nav-item"><a class="nav-link me-lg-3" href="#download">Tautan</a></li>
                         <li class="nav-item"><a class="nav-link me-lg-3" href="#download">Kontak</a></li>
+                        <li class="nav-item">
+                            <form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
+                                <form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
+                                    <input type="text" name="cari">
+                                    <input type="submit" value="Cari">
+                                </form>
+                            </form>
+                        </li>
                     </ul>
                 </div>
             </div>
